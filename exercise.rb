@@ -19,6 +19,16 @@ class ShoppingCart
   		end
   		puts "----------------------------"
   		puts "TOTAL PRICE: " + "#{total_price}" + "$"
+  		special_discount(total_price)
+  	end
+
+  	def special_discount(total_price)
+  		if @items.length > 5
+  			total_price = total_price * 0.9
+  			puts "Special Discount (more than 5 items) 10% off"
+  			puts "----------------------------"
+  			puts "FINAL PRICE: " + "#{total_price}" + "$"
+  		end
   	end
 end
 
@@ -48,7 +58,7 @@ end
 class Fruit < Item
   	def price
       	today_day = Date.today.wday
-      	if today_day == 4 || today_day == 6
+      	if today_day == 0 || today_day == 6
       		discounted_price = @price * 0.95
       		discounted_price
       	else
@@ -67,10 +77,12 @@ urtzis_cart = ShoppingCart.new
 
 urtzis_cart.add_item(orange_juice)
 urtzis_cart.add_item(rice)
+urtzis_cart.add_item(rice)
+urtzis_cart.add_item(rice)
+urtzis_cart.add_item(rice)
 urtzis_cart.add_item(vacuum_cleaner)
 urtzis_cart.add_item(banana)
 urtzis_cart.checkout
-
 
 
 
