@@ -4,6 +4,10 @@ class ShoppingCart
   	def initialize
     	@items = []
   	end
+
+  	def add_item(item)
+  		@items.push(item)
+  	end
 end
 
 class Item 
@@ -51,3 +55,7 @@ puts "Orange Juice: " + "#{orange_juice.price}" + "$"
 puts "Rice: " + "#{rice.price}" + "$"
 puts "Vacuum Cleaner: " + "#{vacuum_cleaner.price}" + "$"
 puts "Anchovies: " + "#{anchovies.price}" + "$"
+
+
+
+
